@@ -7,5 +7,6 @@ Hopeful future abilites of this program include the ability to conjugate German 
 An untested issue might be including words with special characters (ä, ß, ü, etc.)
 
 To run the program with a new Dictionary: java GermanDriver
+
 To run the program with a pre-existing Dictionary: java GermanDriver *filename*
 
