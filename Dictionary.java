@@ -31,12 +31,26 @@ public class Dictionary implements Serializable{
 	}
 
 	public void printList() {
+		int i = 1;
 		for (German entry: dict) {
-			System.out.println(entry.getEnglish()+": ("+entry.getGender()+") "+entry.getGerman()+", "+entry.getPlural()+", "+entry.getQuality());
+			System.out.println(i+".) "+entry.getEnglish()+": ("+entry.getGender()+") "+entry.getGerman()+", "+entry.getPlural()+", "+entry.getQuality());
+			i++;
 		}
 	}
 
 	public void add(German entry) {
 		dict.add(entry);
+	}
+
+	public German find(int index) {
+		return dict.get(index);
+	}
+
+	public void replace(int index, German entry) {
+		dict.set(index, entry);
+	}
+
+	public void remove(int index) {
+		dict.remove(index);
 	}
 }

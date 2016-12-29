@@ -2,7 +2,6 @@ import java.util.*;
 import java.io.*;
 
 public class GermanDriver {
-
 	public static void main(String[] args) {
 		Dictionary dict = null;
 		ObjectInputStream ois = null;
@@ -64,18 +63,7 @@ public class GermanDriver {
 
 				char again = 'y';
 				while (again == 'y') {
-					System.out.print("English word: ");
-					String eng = kb.nextLine();
-					System.out.print("German word: ");
-					String ger = kb.nextLine();
-					System.out.print("Gender: ");
-					char gen = kb.nextLine().charAt(0);
-					System.out.print("Plural: ");
-					String plur = kb.nextLine();
-					System.out.print("Quality in sentence: ");
-					String qual = kb.nextLine();
-
-					German entry = new German(eng, ger, plur, gen, qual);
+					German entry = createEntry();
 					dict.add(entry);
 
 					System.out.print("New entry? ");
@@ -85,6 +73,20 @@ public class GermanDriver {
 
 				choice = printMenu();
 
+			} else if (choice == 6) {
+				Scanner kb = new Scanner(System.in);
+
+				System.out.print("What entry do you want to change? ");
+				int index = kb.nextInt();
+				German entry = createEntry();
+				dict.replace(index-1, entry);
+
+			} else if (choice == 7) {
+				Scanner kb = new Scanner(System.in);
+
+				System.out.print("What entry do you want to remove? ");
+				int index = kb.nextInt();
+				dict.remove(index-1);
 			} else {
 				try {
 					oos.writeObject(dict);
@@ -105,8 +107,26 @@ public class GermanDriver {
 		System.out.println("3.\tPrint Dictionary by Gender");
 		System.out.println("4.\tPrint Dictionary by Quality in Sentence");
 		System.out.println("5.\tAdd New Entry");
-		System.out.println("6.\tExit");
+		System.out.println("6.\tChange Existing Entry");
+		System.out.println("7.\tRemove Existing Entry");
+		System.out.println("8.\tExit");
 
 		return kb.nextInt();
+	}
+
+	public static German createEntry() {
+		Scanner kb = new Scanner(System.in);
+		System.out.print("English word: ");
+		String eng = kb.nextLine();
+		System.out.print("German word: ");
+		String ger = kb.nextLine();
+		System.out.print("Gender: ");
+		char gen = kb.nextLine().charAt(0);
+		System.out.print("Plural: ");
+		String plur = kb.nextLine();
+		System.out.print("Quality in sentence: ");
+		String qual = kb.nextLine();
+
+		return new German(eng, ger, plur, gen, qual);
 	}
 }
