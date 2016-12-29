@@ -35,13 +35,13 @@ public class Dictionary implements Serializable{
 
 		for (German entry: dict) {
 			if (i < 10) {
-				System.out.printf("\t0%d.) %-15s", i, entry.getEnglish());
+				System.out.printf("\t0%d.) %-20s", i, entry.getEnglish());
 			} else {
-				System.out.printf("\t%d.) %-15s", i, entry.getEnglish());
+				System.out.printf("\t%d.) %-20s", i, entry.getEnglish());
 			}
 
-			System.out.printf("( %c ) %-15s", entry.getGender(), entry.getGerman());
-			System.out.printf("%-15s", entry.getPlural());
+			System.out.printf("( %c ) %-20s", entry.getGender(), entry.getGerman());
+			System.out.printf("%-20s", entry.getPlural());
 			System.out.printf("%s\n", entry.getQuality());
 			i++;
 		}
