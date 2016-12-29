@@ -32,8 +32,17 @@ public class Dictionary implements Serializable{
 
 	public void printList() {
 		int i = 1;
+
 		for (German entry: dict) {
-			System.out.println("\t"+i+".) "+entry.getEnglish()+": ("+entry.getGender()+") "+entry.getGerman()+", "+entry.getPlural()+", "+entry.getQuality());
+			if (i < 10) {
+				System.out.printf("\t0%d.) %-15s", i, entry.getEnglish());
+			} else {
+				System.out.printf("\t%d.) %-15s", i, entry.getEnglish());
+			}
+
+			System.out.printf("( %c ) %-15s", entry.getGender(), entry.getGerman());
+			System.out.printf("%-15s", entry.getPlural());
+			System.out.printf("%s\n", entry.getQuality());
 			i++;
 		}
 	}
