@@ -44,22 +44,36 @@ public class GermanDriver {
 		while (choice > 0) {
 			choice = printMenu();
 			if (choice == 1) {
-				dict.sort("english");
-				dict.printList();
+				Scanner kb = new Scanner(System.in);
 
+				System.out.println("\n1.\tBy English");
+				System.out.println("2.\tBy German");
+				System.out.println("3.\tBy Gender");
+				System.out.println("4.\tBy Quality");
+				int sortBy = kb.nextInt();
+
+				if (sortBy == 1) {
+					dict.sort("english");
+					dict.printList();
+				} else if (sortBy == 2) {
+					dict.sort("german");
+					dict.printList();
+				} else if (sortBy == 3) {
+					dict.sort("gender");
+					dict.printList();
+				} else if (sortBy == 4) {
+					dict.sort("quality");
+					dict.printList();
+				} else {
+					try {
+						oos.writeObject(dict);
+						oos.close();
+						System.exit(0);
+					} catch (Exception ex) {
+						System.exit(0);
+					}
+				}
 			} else if (choice == 2) {
-				dict.sort("german");
-				dict.printList();
-
-			} else if (choice == 3) {
-				dict.sort("gender"); 
-				dict.printList();
-
-			} else if (choice == 4) {
-				dict.sort("quality");
-				dict.printList();
-
-			} else if (choice == 5) {
 				Scanner kb = new Scanner(System.in);
 
 				char again = 'y';
@@ -72,7 +86,7 @@ public class GermanDriver {
 					System.out.println();
 				}
 
-			} else if (choice == 6) {
+			} else if (choice == 3) {
 				Scanner kb = new Scanner(System.in);
 
 				System.out.print("What entry do you want to change? ");
@@ -80,7 +94,7 @@ public class GermanDriver {
 				German entry = createEntry();
 				dict.replace(index-1, entry);
 
-			} else if (choice == 7) {
+			} else if (choice == 4) {
 				Scanner kb = new Scanner(System.in);
 
 				System.out.print("What entry do you want to remove? ");
@@ -102,14 +116,11 @@ public class GermanDriver {
 	public static int printMenu() {
 		Scanner kb = new Scanner(System.in);
 
-		System.out.println("1.\tPrint Dictionary in English");
-		System.out.println("2.\tPrint Dictionary in German");
-		System.out.println("3.\tPrint Dictionary by Gender");
-		System.out.println("4.\tPrint Dictionary by Quality in Sentence");
-		System.out.println("5.\tAdd New Entry");
-		System.out.println("6.\tChange Existing Entry");
-		System.out.println("7.\tRemove Existing Entry");
-		System.out.println("8.\tExit");
+		System.out.println("\n1.\tPrint Dictionary");
+		System.out.println("2.\tAdd New Entry");
+		System.out.println("3.\tChange Existing Entry");
+		System.out.println("4.\tRemove Existing Entry");
+		System.out.println("5.\tExit");
 
 		return kb.nextInt();
 	}

@@ -33,7 +33,7 @@ public class Dictionary implements Serializable{
 	public void printList() {
 		int i = 1;
 		for (German entry: dict) {
-			System.out.println(i+".) "+entry.getEnglish()+": ("+entry.getGender()+") "+entry.getGerman()+", "+entry.getPlural()+", "+entry.getQuality());
+			System.out.println("\t"+i+".) "+entry.getEnglish()+": ("+entry.getGender()+") "+entry.getGerman()+", "+entry.getPlural()+", "+entry.getQuality());
 			i++;
 		}
 	}
