@@ -39,25 +39,26 @@ public class GermanDriver {
 			}
 		}
 
-		int choice = printMenu();
+		int choice = 1;
 
 		while (choice > 0) {
+			choice = printMenu();
 			if (choice == 1) {
 				dict.sort("english");
 				dict.printList();
-				choice = printMenu();
+
 			} else if (choice == 2) {
 				dict.sort("german");
 				dict.printList();
-				choice = printMenu();
+
 			} else if (choice == 3) {
 				dict.sort("gender"); 
 				dict.printList();
-				choice = printMenu();
+
 			} else if (choice == 4) {
 				dict.sort("quality");
 				dict.printList();
-				choice = printMenu();
+
 			} else if (choice == 5) {
 				Scanner kb = new Scanner(System.in);
 
@@ -70,8 +71,6 @@ public class GermanDriver {
 					again = kb.nextLine().charAt(0);
 					System.out.println();
 				}
-
-				choice = printMenu();
 
 			} else if (choice == 6) {
 				Scanner kb = new Scanner(System.in);
@@ -87,6 +86,7 @@ public class GermanDriver {
 				System.out.print("What entry do you want to remove? ");
 				int index = kb.nextInt();
 				dict.remove(index-1);
+
 			} else {
 				try {
 					oos.writeObject(dict);
