@@ -4,9 +4,7 @@ A program that allows you to keep a list of English words and their German trans
 
 Hopeful future abilites of this program include the ability to conjugate German verbs and, given the case and gender of a phrase, be able to give the proper endings. Another functionality will be creating more than one dictionary at a time.
 
-An untested issue might be including words with special characters (ä, ß, ü, etc.)
+To run the program with a new Dictionary: java GermanDriver - this will overwrite any existing dictionary of words
 
-To run the program with a new Dictionary: java GermanDriver
-
-To run the program with a pre-existing Dictionary: java GermanDriver *filename*
+To run the program with a pre-existing Dictionary: java GermanDriver *filename* - this will allow you to use a dictionary of words that already exists and build upon it
 
